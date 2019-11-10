@@ -1,0 +1,37 @@
+	window.location.assign("new target URL");
+//or
+window.location.replace("new target URL");
+
+//location.replace is useful for any 301 redirect scenario
+//succinct way to redirect from HTTP to HTTPS using JavaScript
+	if (location.protocal !== "https:"){
+location.replace(window.location.href.replace("http:", "https:"))
+	}
+
+//location.reload method reloads the current document
+location.reload(); //refreshes from cache
+
+//or
+
+location.reload(true); //to force a network request
+
+
+//use JavaScript to refresh the page in response to a user action
+var btn = document.querySelector(".btn-reload");
+btn.addEventListener("click", function(e){
+
+	e.preventDefault();
+
+	location.reload(true);
+});
+
+//Redirect On A form Submission
+//click or point event handler that intercepts a
+//submitted form reaching the server
+	submitBtn.addEventListener("click", function(evt) {
+	evt.preventDefault();
+window.location.replace("new target URL");
+	return false;
+	});
+//neccesary when you creating a client-side form handler
+//adding a queryString parameter for URL allows us to reference users state
