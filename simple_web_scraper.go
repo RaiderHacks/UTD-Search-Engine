@@ -90,9 +90,13 @@ func scrape(url string, ch chan string, chFinished chan bool) {
 }
 
 func main() {
+	fmt.Println("%d\n",len(os.Args))
+
 	foundUrls := make(map[string]bool)
 
 	seedUrls := os.Args[1:]
+	
+	
 
 	//Channels
 
@@ -126,6 +130,7 @@ func main() {
 		fmt.Println(" - " + url)
 	}
 
+	
 	close(chUrls)
 }
 
