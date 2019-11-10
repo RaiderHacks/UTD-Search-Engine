@@ -1,18 +1,15 @@
 import requests 
 import re
 from bs4 import BeautifulSoup
-# tag is a link and contains key word
-
-
 
 # word is defined by user input but the base url is hardcoded rn.  
 def find_links(word):
-    url = 'https://en.wikipedia.org/wiki/Toyota'
-
+    url = 'https://www.toyota.com/'
+    
     req = requests.get(url)
     soup = BeautifulSoup(req.content, 'html.parser')
 
-    links_with_word = []
+
     
     # soup.find_all("a", href=re.compile(word))
     # raw_links = soup.find_all("a", href=lambda href: href or word in href)
@@ -21,20 +18,18 @@ def find_links(word):
         # print(tag.name)
 
     objects_with_key = soup.find_all('a',text=re.compile(word))
-    
+
     for object in objects_with_key:
-        # if the keyword is in the object append it to links with word
-        links_with_word.append("<a href= "+url + object.get('href')+ ">"+str(object.text) + "</a>")
+        print(str(object) + '\n')
 
-    return str(links_with_word)
 
-        
-    # return str(links_with_word)
+    # print(raw_links)
+    # return(raw_links)
 
 
 
 
-
+find_links('car')
 
 
 
