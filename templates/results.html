@@ -3,16 +3,14 @@
         <h1>
             Here is a list of links with your keyword from website {{target_url}}
         </h1>
-        <!-- <ul>
-            {% for link in links %}
-                <li>{{link}}</li>
-            {% endfor %}
-        </ul>    -->
+
         <ul id="navigation">
             {% for link in links %}
                 <li><a href="{{ link.get('href') }}">{{ link.string }}</a></li>
             {% endfor %}
-            </ul>
+        </ul>
+        
+        {{art_text}}
         
      
     </body>
