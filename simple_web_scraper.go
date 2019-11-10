@@ -31,7 +31,7 @@ func getHref(t html.Token) (ok bool,href string) {
 
 //Extract all http** links from a given webpage
 
-func crawl(url string, ch chan string, chFinished chan bool) {
+func scrape(url string, ch chan string, chFinished chan bool) {
 	resp,err := http.Get(url)
 
 	defer func() {
@@ -41,7 +41,7 @@ func crawl(url string, ch chan string, chFinished chan bool) {
 	}()
 
 	if err != nil {
-		fmt.Println("ERROR: Failed to crawl \"" + url + "\"")
+		fmt.Println("ERROR: Failed to scrape \"" + url + "\"")
 		return
 	}
 
@@ -100,10 +100,10 @@ func main() {
 
 	chFinished := make(chan bool)
 
-	//Kick off the crawl process (concurrently)
+	//Kick off the scrape process (concurrently)
 
 	for _, url := range seedUrls {
-		go crawl(url,chUrls,chFinished)
+		go scrape(url,chUrls,chFinished)
 	}
 
 	//Subscribe to both channels
