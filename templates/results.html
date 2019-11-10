@@ -1,12 +1,19 @@
 <html>
     <body>
         <h1>
-            Here is a list of links with your keyword from website
+            Here is a list of links with your keyword from website {{target_url}}
         </h1>
-        <ul>
+        <!-- <ul>
             {% for link in links %}
-                <li> <a href={{link}}> {{link}} </a></li>
+                <li>{{link}}</li>
             {% endfor %}
-        </ul>   
+        </ul>    -->
+        <ul id="navigation">
+            {% for link in links %}
+                <li><a href="{{ link.get('href') }}">{{ link.string }}</a></li>
+            {% endfor %}
+            </ul>
+        
+     
     </body>
 </html>

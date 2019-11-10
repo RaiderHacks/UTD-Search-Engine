@@ -12,7 +12,8 @@ def find_links(word, target_url):
     req = requests.get(url)
     soup = BeautifulSoup(req.content, 'html.parser')
 
-    links_with_word = []
+
+
     
     # soup.find_all("a", href=re.compile(word))
     # raw_links = soup.find_all("a", href=lambda href: href or word in href)
@@ -21,14 +22,14 @@ def find_links(word, target_url):
         # print(tag.name)
 
     objects_with_key = soup.find_all('a',text=re.compile(word))
+
     
-    for object in objects_with_key:
+    
+    # for object in objects_with_key:
         # if the keyword is in the object append it to links with word
-        links_with_word.append(url + object.get('href') + object.string)
+        # links_with_word.append( url + object.get('href') + object.text)
+    return objects_with_key
 
-
-    print(links_with_word)
-    return links_with_word
 
         
     # return str(links_with_word)
