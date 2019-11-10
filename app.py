@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+from scrape import find_links 
 
 app = Flask(__name__)
 
@@ -9,5 +10,7 @@ def my_form():
 @app.route('/', methods=['POST'])
 def my_form_post():
     text = request.form['text']
-    processed_text = text.upper()
-    return processed_text
+    
+    # processed_text = text.upper()
+    # return processed_text
+    return find_links(text)
