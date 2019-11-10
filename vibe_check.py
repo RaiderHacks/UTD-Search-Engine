@@ -29,4 +29,5 @@ def analyze_sentiment(text_content):
     response = client.analyze_sentiment(document, encoding_type=encoding_type)
     # Get overall sentiment of the input document
     sentement_score = u"Document sentiment score: {}".format(response.document_sentiment.score)
+    return sentement_score
 

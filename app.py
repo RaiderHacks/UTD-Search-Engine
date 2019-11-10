@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from scrape import find_links, retrieve_text
 from markupsafe import Markup, escape
+from vibe_check import analyze_sentiment
 
 
 app = Flask(__name__)
@@ -18,8 +19,10 @@ def my_form_post():
     for link in links:
         links_to_check.append((link.get('href')))
     art_text = retrieve_text(links_to_check)
+    # passes the text of the retrived urls to the analyze sentement google api
+    sentement = analyze_sentiment(art_text)
     
-    return render_template('results.html', links=links, art_text=art_text)
+    return render_template('results.html', links=links, art_text=art_text, sentement=sentement)
 
 
 @app.route('/results.html')

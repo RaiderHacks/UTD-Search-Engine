@@ -7,11 +7,12 @@
         <ul id="navigation">
             {% for link in links %}
                 <li><a href="{{ link.get('href') }}">{{ link.string }}</a></li>
+                <li>{{ sentement }}</li>
             {% endfor %}
         </ul>
-        
-        {{art_text}}
-        
+        {% for text in art_text %}
+            {{text}}
+        {% endfor %}
      
     </body>
 </html>

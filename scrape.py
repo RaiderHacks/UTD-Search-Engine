@@ -30,8 +30,8 @@ def find_links(word, target_url):
 list = links_to_check
 # Return text of each link in the array
 def retrieve_text(list_of_links):
+    arts = []
 
-#
     for link in list_of_links:
         html = requests.get(link)
         soup = BeautifulSoup(html.text, 'html.parser')
@@ -48,8 +48,9 @@ def retrieve_text(list_of_links):
         chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
 #     # drop blank lines
         text = '\n'.join(chunk for chunk in chunks if chunk)
+        arts.append(text)
         print(text)
-        return text
+    return str(arts)
 
         
 
