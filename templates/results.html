@@ -1,5 +1,12 @@
 <html>
-    <ul>
-        <li> </li>
-    </ul>
+    <body>
+        <h1>
+            Here is a list of links with your keyword from website
+        </h1>
+        <ul>
+            {% for link in links %}
+                <li> <a href={{link}}> {{link}} </a></li>
+            {% endfor %}
+        </ul>   
+    </body>
 </html>

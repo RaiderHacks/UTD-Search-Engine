@@ -6,8 +6,8 @@ from bs4 import BeautifulSoup
 
 
 # word is defined by user input but the base url is hardcoded rn.  
-def find_links(word):
-    url = 'https://en.wikipedia.org/wiki/Toyota'
+def find_links(word, target_url):
+    url = target_url
 
     req = requests.get(url)
     soup = BeautifulSoup(req.content, 'html.parser')
@@ -24,9 +24,11 @@ def find_links(word):
     
     for object in objects_with_key:
         # if the keyword is in the object append it to links with word
-        links_with_word.append("<a href= "+url + object.get('href')+ ">"+str(object.text) + "</a>")
+        links_with_word.append(url + object.get('href') + object.string)
 
-    return str(links_with_word)
+
+    print(links_with_word)
+    return links_with_word
 
         
     # return str(links_with_word)

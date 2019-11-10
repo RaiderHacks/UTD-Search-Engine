@@ -10,12 +10,13 @@ def my_form():
 @app.route('/', methods=['POST'])
 def my_form_post():
     text = request.form['text']
-    
+    target_url = request.form['url']
+    links = find_links(text, target_url)
     # processed_text = text.upper()
     # return processed_text
-    return find_links(text)
+    return render_template('results.html', links=links, target_url=target_url, text=text)
 
 
-
-
-
+@app.route('/results.html')
+def results():
+    return
