@@ -10,7 +10,9 @@ def ip2long(ip):
     packedIP = socket.inet_aton(ip)
     return struct.unpack("!L",packedIP)[0]
 
-ipv4str = url2ipv4('duckduckgo.com')
+ipv4str = url2ipv4('mlh.io')
+
+print("ipv4 address in string form: %s" % ipv4str)
 
 ipv4long = ip2long(ipv4str)
 
