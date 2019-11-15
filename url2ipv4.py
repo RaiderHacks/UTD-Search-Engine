@@ -1,7 +1,7 @@
 import socket, struct
 
 def url2ipv4(hostname):
-    return socket.gethostbyname('google.com')
+    return socket.gethostbyname(hostname)
 
 def ip2long(ip):
     """
