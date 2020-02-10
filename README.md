@@ -1,4 +1,4 @@
-# UTD-Search-Engine
+# The Polygraph Journal
 search engine
 
  
