@@ -1,4 +1,5 @@
 # The Polygraph Journal
-search engine
+This was made during 2019 HackUTD hackthon as a submision to the Text Objectivity Analysis contest.
+
 
  
